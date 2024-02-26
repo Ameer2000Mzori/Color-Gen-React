@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import ColorGenLogic from './hooks/ColorGenLogic.jsx'
-
+import Values from 'values.js'
 const Home = () => {
   const [color, setColor] = useState()
+
+  console.log(new Values(color).all(10))
   return (
     <>
       <div>
