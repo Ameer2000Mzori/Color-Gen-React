@@ -35,7 +35,6 @@ const Home = () => {
                 } else {
                   let colorSet = ColorGenLogic(color, colorsSets)
                   setColors(colorSet)
-                  console.log(colors)
                 }
               }}
             >
@@ -48,7 +47,6 @@ const Home = () => {
           <h1>our colors</h1>
           <div className="flex flex-row flex-wrap gap-4 text-center items-center justify-center">
             {colors.map((color, index) => {
-              console.log(color, color.rgb[0])
               return (
                 <div
                   onClick={(e) => {
