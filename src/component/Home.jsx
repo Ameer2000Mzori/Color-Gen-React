@@ -1,21 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ColorGenLogic from './hooks/ColorGenLogic.jsx'
-import Values from 'values.js'
-const Home = () => {
-  const [color, setColor] = useState()
 
-  console.log(new Values(color).all(10))
+const Home = () => {
+  const [color, setColor] = useState('red')
+
   return (
     <>
       <div>
         <div>
-          <input
-            type="color"
-            value={color}
-            onChange={(e) => {
-              setColor(e.target.value)
-            }}
-          />
+          <div>
+            <input
+              type="color"
+              value={color}
+              onChange={(e) => {
+                setColor(e.target.value)
+              }}
+            />
+            <button
+              onClick={() => {
+                let colorSet = ColorGenLogic(color)
+                console.log(colorSet)
+              }}
+            >
+              get colors
+            </button>
+          </div>
+          <h1>select a color</h1>
         </div>
       </div>
     </>
