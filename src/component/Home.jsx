@@ -51,6 +51,11 @@ const Home = () => {
               console.log(color, color.rgb[0])
               return (
                 <div
+                  onClick={(e) => {
+                    let colorVal = e.currentTarget.getAttribute('data-colorval')
+                    navigator.clipboard.writeText(colorVal)
+                  }}
+                  data-colorval={`rgb(${color.rgb[0]}, ${color.rgb[1]}, ${color.rgb[2]})`}
                   className="h-[40px] w-[40px]"
                   style={{
                     backgroundColor: `rgb(${color.rgb[0]}, ${color.rgb[1]},${color.rgb[2]})`,
