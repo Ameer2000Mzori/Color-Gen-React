@@ -3,6 +3,7 @@ import ColorGenLogic from './hooks/ColorGenLogic.jsx'
 
 const Home = () => {
   const [color, setColor] = useState('red')
+  const [colorsSets, setColorsSets] = useState(10)
   const [colors, setColors] = useState([])
   return (
     <>
@@ -16,11 +17,26 @@ const Home = () => {
                 setColor(e.target.value)
               }}
             />
+            <input
+              type="number"
+              value={colorsSets}
+              onChange={(e) => {
+                setColorsSets(e.target.value)
+              }}
+              placeholder="min=  1 / max = 100"
+              min={1}
+              max={100}
+            />
             <button
               onClick={() => {
-                let colorSet = ColorGenLogic(color)
-                setColors(colorSet)
-                console.log(colors)
+                if (colorsSets > 100 || colorsSets < 0) {
+                  alert('min=  1 / max = 100')
+                  return
+                } else {
+                  let colorSet = ColorGenLogic(color, colorsSets)
+                  setColors(colorSet)
+                  console.log(colors)
+                }
               }}
             >
               get colors
